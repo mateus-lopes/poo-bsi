@@ -1,3 +1,5 @@
+from random import randint
+
 print("\n-- CLASSE BOLA --\n")
 class Bola:
     def __init__(self, cor, circunferencia, material):
@@ -306,30 +308,32 @@ while True:
 
 print("\n-- CLASSE BOMBA DE COMBUSTÍVEL --\n")
 class BombaCombustivel: 
-    def __init__(self, tipo_combustivel, valor_litro, quantidade_combustivel):
-        self.tipo_combustivel = tipo_combustivel
-        self.valor_litro = valor_litro
-        self.quantidade_combustivel = quantidade_combustivel
+    def __init__(self, tipoCombustivel, valorLitro, quantidadeCombustivel):
+        self.tipoCombustivel = tipoCombustivel
+        self.valorLitro = valorLitro
+        self.quantidadeCombustivel = quantidadeCombustivel
 
     def abastecerPorValor(self, valor):
-        litros = valor / self.valor_litro
-        self.quantidade_combustivel -= litros
+        litros = valor / self.valorLitro
+        self.quantidadeCombustivel -= litros
         return litros
 
     def abastecerPorLitro(self, litros):
-        valor = litros * self.valor_litro
-        self.quantidade_combustivel -= litros
+        valor = litros * self.valorLitro
+        self.quantidadeCombustivel -= litros
         return valor
 
-    def alterarValor(self, novo_valor):
-        self.valor_litro = novo_valor
+    def alterarValor(self, novoValor):
+        self.valorLitro = novoValor
 
-    def alterarCombustivel(self, novo_combustivel):
-        self.tipo_combustivel = novo_combustivel
+    def alterarCombustivel(self, novoCombustivel):
+        self.tipoCombustivel = novoCombustivel
 
     def alterarQuantidadeCombustivel(self, nova_quantidade):
-        self.quantidade_combustivel = nova_quantidade
+        self.quantidadeCombustivel = nova_quantidade
 
+# atributos_bomba = input("Informe o tipo de combustível, valor do litro e quantidade de combustível da bomba (separados por um espaço): ").split(' ')
+# bomba1 = BombaCombustivel(atributos_bomba[0], int(atributos_bomba[1]), int(atributos_bomba[2]))
 bomba1 = BombaCombustivel("Gasolina", 5, 1000)
 print("Quantidade de litros abastecidos:", bomba1.abastecerPorValor(50))
 print("Quantidade de litros abastecidos:", bomba1.abastecerPorLitro(10))
@@ -356,4 +360,154 @@ meuFusca = Carro(15)
 meuFusca.adicionarGasolina(20)
 meuFusca.andar(100)
 print("Combustível restante no tanque:", meuFusca.obterGasolina())
+
+print("\n-- CLASSE CONTA DE INVESTIMENTO --\n")
+class ContaInvestimento:
+    def __init__(self, saldo_inicial, taxa_juros):
+        self.saldo = saldo_inicial
+        self.taxa_juros = taxa_juros
+
+    def adicioneJuros(self):
+        self.saldo += self.saldo * (self.taxa_juros / 100)
+
+conta1 = ContaInvestimento(1000, 10)
+for _ in range(5):
+    conta1.adicioneJuros()
+print("Saldo da conta de investimento:", conta1.saldo)
+
+print("\n-- CLASSE FUNCIONÁRIO --\n")
+class Funcionario:
+    def __init__(self, nome, salario):
+        self.nome = nome
+        self.salario = salario
+
+    def aumentarSalario(self, porcentual_aumento):
+        self.salario += self.salario * (porcentual_aumento / 100)
+
+funcionario1 = Funcionario("Fulano", 1000)
+print("Salário do funcionário:", funcionario1.salario)
+funcionario1.aumentarSalario(10)
+print("Novo salário do funcionário:", funcionario1.salario)
+
+
+print("\n-- CLASSE BICHINHO VIRTUAL++ --\n")
+class BichinhoVirtualMelhorado:
+    def __init__(self, nome, fome, saude, idade):
+        self.nome = nome
+        self.fome = fome
+        self.saude = saude
+        self.idade = idade
+
+    def __str__(self):
+        return f"Nome: {self.nome}, Fome: {self.fome}, Saúde: {self.saude}, Idade: {self.idade}"
+
+    def alimentar(self, alimento, tempo):
+        if (self.fome - alimento) <= 0 or (self.fome == 0):
+            self.fome = 0
+        else:
+            self.fome -= alimento
+
+        if self.saude >= 100:
+            self.saude = 100
+        else:
+            self.saude += tempo / 2
+
+    def brincar(self, tempo):
+        if self.fome > 100:
+            self.fome = 100
+        else:
+            self.fome += tempo
+
+        if self.saude >= 100:
+            self.saude = 100
+        else:
+            self.saude += tempo / 2
+
+    def retornarNome(self):
+        return self.nome
+
+    def retornarFome(self):
+        return self.fome
+
+    def retornarSaude(self):
+        return self.saude
+
+    def retornarIdade(self):
+        return self.idade
+    
+    def retornarHumor(self):
+        return self.saude - self.fome
+    
+# atributos_bichinho = input("Informe o nome, fome, saúde e idade do bichinho (separados por um espaço): ").split(' ')
+# bichinho1 = BichinhoVirtualMelhorado(atributos_bichinho[0], int(atributos_bichinho[1]), int(atributos_bichinho[2]), int(atributos_bichinho[3]))
+bichinho1 = BichinhoVirtualMelhorado("Bichinho", 25, 50, 9)
+while True:
+    print("Opções:")
+    print("1 - Alimentar")
+    print("2 - Brincar")
+    print("3 - Ver humor")
+    print("4 - Porta escondida")
+    print("0 - Sair")
+
+    opcao = int(input("Digite a opção: "))
+
+    if opcao == 1:
+        alimento = int(input("Digite a quantidade de alimento: "))
+        tempo = int(input("Digite o tempo de alimentação: "))
+        bichinho1.alimentar(alimento, tempo)
+    elif opcao == 2:
+        tempo = int(input("Digite o tempo de brincadeira: "))
+        bichinho1.brincar(tempo)
+    elif opcao == 3:
+        print("Humor do bichinho:", bichinho1.retornarHumor())
+    elif opcao == 4:
+        print(bichinho1)
+    elif opcao == 0:
+        break
+    else:
+        print("Opção inválida!")
+
+print("\n-- CLASSE FAZENDA DE BICHINHOS --\n")
+class FazendaBichinhos:
+    def __init__(self, quantidade_bichinhos):
+        self.bichinhos = []
+        for _ in range(quantidade_bichinhos):
+            self.bichinhos.append(BichinhoVirtualMelhorado("Bichinho", randint(0, 100), randint(0, 100), randint(0, 14)))
+
+    def alimentar(self, alimento, tempo):
+        for bichinho in self.bichinhos:
+            bichinho.alimentar(alimento, tempo)
+
+    def brincar(self, tempo):
+        for bichinho in self.bichinhos:
+            bichinho.brincar(tempo)
+
+    def verHumor(self):
+        for bichinho in self.bichinhos:
+            print(f"Humor do bichinho {bichinho.retornarNome()}: {bichinho.retornarHumor()}")
+
+quantidade_bichinhos = int(input("Informe a quantidade de bichinhos na fazenda: "))
+fazenda1 = FazendaBichinhos(quantidade_bichinhos)
+while True:
+    print("Opções:")
+    print("1 - Alimentar")
+    print("2 - Brincar")
+    print("3 - Ver humor")
+    print("0 - Sair")
+
+    opcao = int(input("Digite a opção: "))
+
+    if opcao == 1:
+        alimento = int(input("Digite a quantidade de alimento: "))
+        tempo = int(input("Digite o tempo de alimentação: "))
+        fazenda1.alimentar(alimento, tempo)
+    elif opcao == 2:
+        tempo = int(input("Digite o tempo de brincadeira: "))
+        fazenda1.brincar(tempo)
+    elif opcao == 3:
+        fazenda1.verHumor()
+    elif opcao == 0:
+        break
+    else:
+        print("Opção inválida!")
 
