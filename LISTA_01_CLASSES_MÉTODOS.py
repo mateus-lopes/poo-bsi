@@ -1,4 +1,6 @@
 from random import randint
+# Aluno: Mateus Lopes Albano
+# cada exercicio esta separado por uma linha de print()
 
 print("\n-- CLASSE BOLA --\n")
 class Bola:
