@@ -15,7 +15,7 @@ class Bola:
     
 # atributos = input("Informe a cor, circunferência e material da bola (separados por um espaço): ").split(' ')
 # bola1 = Bola(atributos[0], atributos[1], atributos[2])
-bola1 = Bola("Azul", 10, "Borracha")
+bola1 = Bola("Roxo", 25, "Borracha")
 print("Cor da bola:", bola1.mostraCor())
 bola1.trocaCor("Marrom")
 print("Nova cor da bola:", bola1.mostraCor())
@@ -36,7 +36,7 @@ class Quadrado:
     
 # lado_quadrado = float(input("Informe o lado do quadrado: "))
 # quadrado1 = Quadrado(lado_quadrado)
-quadrado1 = Quadrado(4)
+quadrado1 = Quadrado(16)
 print("Lado do quadrado:", quadrado1.retornarValorLado())
 quadrado1.mudarValorLado(5)
 print("Novo lado do quadrado:", quadrado1.retornarValorLado())
@@ -98,7 +98,7 @@ class Pessoa:
 
 # atributos_pessoa = input("Informe o nome, idade, peso e altura da pessoa (separados por um espaço): ").split(' ')
 # pessoa1 = Pessoa(atributos_pessoa[0], int(atributos_pessoa[1]), int(atributos_pessoa[2]), int(atributos_pessoa[3]))
-pessoa1 = Pessoa("Fulano", 20, 70, 1.70)
+pessoa1 = Pessoa("Fulano", 20, 64, 1.78)
 print("Altura da pessoa:", pessoa1.altura)
 pessoa1.envelhecer()
 print("Nova idade da pessoa:", pessoa1.idade)
@@ -128,7 +128,7 @@ class ContaCorrente:
 
 # atributos_conta = input("Informe o número da conta e o nome do correntista (separados por um espaço): ").split(' ')
 # conta1 = ContaCorrente(atributos_conta[0], atributos_conta[1])
-conta1 = ContaCorrente("12345-6", "Fulano")
+conta1 = ContaCorrente("55342-6", "Fulano")
 print("Saldo da conta:", conta1.saldo)
 conta1.deposito(1500)
 print("Novo saldo da conta:", conta1.saldo)
@@ -200,13 +200,13 @@ class BichinhoVirtual:
     
 # atributos_bichinho = input("Informe o nome, fome, saúde e idade do bichinho (separados por um espaço): ").split(' ')
 # bichinho1 = BichinhoVirtual(atributos_bichinho[0], int(atributos_bichinho[1]), int(atributos_bichinho[2]), int(atributos_bichinho[3]))
-bichinho1 = BichinhoVirtual("Bichinho", 50, 50, 5)
+bichinho1 = BichinhoVirtual("Billy", 50, 50, 5)
 print("Nome do bichinho:", bichinho1.retornarNome())
 print("Fome do bichinho:", bichinho1.retornarFome())
 print("Saúde do bichinho:", bichinho1.retornarSaude())
 print("Idade do bichinho:", bichinho1.retornarIdade())
 print("Humor do bichinho:", bichinho1.retornarHumor())
-bichinho1.alterarNome("Tamagotchi")
+bichinho1.alterarNome("Juninho")
 bichinho1.alterarFome(40)
 bichinho1.alterarSaude(100)
 bichinho1.alterarIdade(9)
